@@ -122,7 +122,7 @@ class AppManager(BaseApp):
         self.page.create_content()
 
         # Load random logo
-        self.add_logo("images/logos/" + str(random.randrange(1, 102)) + ".png")
+        self.add_logo("images/logos/1.png")
 
         # Header message
         self.add_message("SUPERCON 2025\nPasadena, CA")

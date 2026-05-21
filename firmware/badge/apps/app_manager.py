@@ -126,7 +126,7 @@ class AppManager(BaseApp):
         self.add_logo("images/logos/" + str(random.randrange(1, 102)) + ".png")
 
         # Header message
-        self.add_message("2026 Hackaday Europe\nLecco, IT")
+        self.add_message("Open Hardware Summit 2026\nBerlin, DE")
         self.page.create_menubar(self.name_list)
         self.page.replace_screen()
 
