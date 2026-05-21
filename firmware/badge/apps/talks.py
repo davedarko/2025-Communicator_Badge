@@ -34,7 +34,7 @@ class Talks(BaseApp):
 
         # Variables to remember state
         self.talk_index = 0
-        self.day_index = "SAT"
+        self.day_index = "FRI"
         self.stage_index = "TALK"
         self.talk_changed = False
 
@@ -105,10 +105,14 @@ class Talks(BaseApp):
         if self.badge.keyboard.f1():  # Day
             self.talk_changed = True
             self.talk_index = 0
-            if self.day_index == "SAT":
+            print(f"{self.talk_index} {self.day_index}")
+            if self.day_index == "FRI":
+                self.day_index = "SAT"
+            elif self.day_index == "SAT":
                 self.day_index = "SUN"
             else:
-                self.day_index = "SAT"
+                self.day_index = "FRI"
+            print(f"switched to {self.talk_index} {self.day_index}")
 
         elif self.badge.keyboard.f2():  # Interest
             increment_interest = True
@@ -135,8 +139,9 @@ class Talks(BaseApp):
                     self.talk_changed = True
                 elif key == '/':
                     print("HACK THE PLANET!")
-                    self.badge.display.image(0, 0, "images/headshots/goldstein.jpg")                     
-
+                    self.badge.display.image(0, 0, "images/headshots/goldstein.jpg")
+                    self.talk_changed = True
+                    
         # Find matching talks
         matching_talks = []
         for talk in self.talks:
@@ -194,7 +199,7 @@ class Talks(BaseApp):
 
         # Return to start of schedule
         self.talk_index = 0
-        self.day_index = "SAT"
+        self.day_index = "FRI"
 
         # Load in first result in list TODO make this time sensitive
         current_talk = self.talks[0]
